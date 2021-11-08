@@ -1,3 +1,35 @@
+# Testing server with Node and Express
+
+From this article: [How to Setup Node Express Server to mock APIs response locally](https://medium.com/analytics-vidhya/how-to-setup-node-express-server-to-mock-apis-response-locally-53b4fdb8de97)
+
+## Files
+
+- **data.json** — This is where you should put the response you want to mock.
+- **dataController.js** — We will set up a very simple logic in this file to read
+  from the data file you created in the previous step
+- **server.js** — This is the gist of everything. This is the file we will
+  execute to mock the server. It listens to the port and the API string you have
+  in your “app.get”. If you hit “localhost:3002/api/data”, your dataController
+  will call getData which would fetch the data from the data.json file in JSON
+  format.
+
+Finally, to start your server, run
+
+```
+npm server.js
+```
+
+Your API is running on port 3002. Your web app is on port 3000. So in your
+package.json, add a proxy so your web app knows that the API is mocked at a
+different port:
+
+```
+// package.json
+"proxy": "http://localhost:3002"
+```
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
