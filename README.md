@@ -1,8 +1,6 @@
 # Testing server with Node and Express
 
-From this article: [How to Setup Node Express Server to mock APIs response locally](https://medium.com/analytics-vidhya/how-to-setup-node-express-server-to-mock-apis-response-locally-53b4fdb8de97)
-
-## Files
+## [How to Setup Node Express Server to mock APIs response locally](https://medium.com/analytics-vidhya/how-to-setup-node-express-server-to-mock-apis-response-locally-53b4fdb8de97)
 
 - **data.json** — This is where you should put the response you want to mock.
 - **dataController.js** — We will set up a very simple logic in this file to read
@@ -27,6 +25,32 @@ different port:
 // package.json
 "proxy": "http://localhost:3002"
 ```
+
+## [How To Build and Test a Node.js REST API with Express on Ubuntu 18.04](https://www.section.io/engineering-education/building-a-basic-api-with-nodejs/)
+
+Step 1. Build and Run and Express server with Node
+
+First, setup Express. Write a simple "Hello World" app.
+
+```
+app.get('/', (req, res) => {
+  res.end('Hello World!');
+});
+```
+
+Step 2. Create a GET endpoint
+
+Say you have this data:
+
+```
+/data/products.json
+```
+
+First, read the file contents with the `fs module`, then return the data to the
+client that made the GET request to your server.
+
+Then navigate to `http://localhost:3002/api/products` to see the data in
+`products.json`
 
 ---
 

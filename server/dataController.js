@@ -8,8 +8,19 @@ const getJsonData = function (basePathToData, filename) {
   return JSON.parse(fs.readFileSync(filename, 'utf-8'));
 };
 
+exports.getHome = function (request, response) {
+  return response.send('Hello World');
+};
+
 exports.getData = function (request, response) {
   var data = getJsonData(basePathToData, 'data.json');
+  setTimeout(function () {
+    return response.send(data);
+  }, 100);
+};
+
+exports.getProducts = function (request, response) {
+  var data = getJsonData(basePathToData, 'products.json');
   setTimeout(function () {
     return response.send(data);
   }, 100);
