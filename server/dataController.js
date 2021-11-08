@@ -19,9 +19,40 @@ exports.getData = function (request, response) {
   }, 100);
 };
 
-exports.getProducts = function (request, response) {
-  var data = getJsonData(basePathToData, 'products.json');
+exports.getProductByQuery = function (request, response) {
+  console.log('Running getProductByQuery.');
+  var products = getJsonData(basePathToData, 'products.json');
+  const handle = request.query.handle;
+  let output;
+  if (!handle) {
+    output = products;
+  } else if (products[handle]) {
+    output = products[handle];
+  } else {
+    output = {
+      id: 'xxxxxxxxquery',
+      description: 'No product found with the requested handle',
+    };
+  }
   setTimeout(function () {
-    return response.send(data);
+    return response.send(output);
+  }, 100);
+};
+
+exports.getProductByRoute = function (request, response) {
+  console.log('Running getProductByRoute.');
+  var products = getJsonData(basePathToData, 'products.json');
+  const handle = request.params.handle;
+  let output;
+  if (products[handle]) {
+    output = products[handle];
+  } else {
+    output = {
+      id: 'ddddddddroute',
+      description: 'No product found with the requested handle',
+    };
+  }
+  setTimeout(function () {
+    return response.send(output);
   }, 100);
 };

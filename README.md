@@ -52,6 +52,17 @@ client that made the GET request to your server.
 Then navigate to `http://localhost:3002/api/products` to see the data in
 `products.json`
 
+Heck, let's also add some query param processing. Then, to see the data for a
+single product, navigate to one of these:
+
+- `http://localhost:3002/api/products?handle=butterfly-kiss-shaver`
+- `http://localhost:3002/api/products/butterfly-kiss-shaver`
+
+References:
+
+- [Express Docs > Routing](https://expressjs.com/en/guide/routing.html)
+- [Get Query Strings and Parameters in Express.js](https://stackabuse.com/get-query-strings-and-parameters-in-express-js/)
+
 ---
 
 # Getting Started with Create React App
